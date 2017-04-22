@@ -1,0 +1,28 @@
+<md-card>
+  <form action="">
+    <md-input-container>
+      <input type="text" mdInput placeholder="Nombre" [(ngModel)]="nuevoUsuario.nombre" name="nombre" />
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput placeholder="Email" [(ngModel)]="nuevoUsuario.email" name="email" />
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput placeholder="Confirmar Email" #cemail name="cemail" />
+    </md-input-container>
+    <md-input-container>
+      <input type="password" mdInput placeholder="Password" [(ngModel)]="nuevoUsuario.password" name="password" />
+    </md-input-container>
+    <md-input-container>
+      <input type="password" mdInput placeholder="Confirmar Password" #cpassword name="cpassword" />
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput placeholder="Foto" [(ngModel)]="nuevoUsuario.foto" name="foto" />
+    </md-input-container>
+    <button md-raised-button (click)="registrar(cemail.value, cpassword.value)">Registrarse</button>
+  </form>
+  <div>
+    <md-chip-list>
+      <md-chip color="warn" *ngFor="let error of errors">{{ error }}</md-chip>
+    </md-chip-list>
+  </div>
+</md-card>
