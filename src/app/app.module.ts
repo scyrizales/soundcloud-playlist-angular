@@ -12,13 +12,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { NavegacionComponent } from './navegacion/navegacion.component';
+import { UsuarioEstadoComponent } from './usuario-estado/usuario-estado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    InicioComponent
+    InicioComponent,
+    NavegacionComponent,
+    UsuarioEstadoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,25 @@ import { InicioComponent } from './inicio/inicio.component';
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([
+      {
+        path: 'inicio',
+        component: InicioComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'registro',
+        component: RegistroComponent
+      },
+      {
+        path: '',
+        redirectTo: '/inicio',
+        pathMatch: 'full'
+      }
+    ])
   ],
   providers: [
     SessionService

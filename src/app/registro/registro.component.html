@@ -18,7 +18,10 @@
     <md-input-container>
       <input type="text" mdInput placeholder="Foto" [(ngModel)]="nuevoUsuario.foto" name="foto" />
     </md-input-container>
-    <button md-raised-button (click)="registrar(cemail.value, cpassword.value)">Registrarse</button>
+    <div>
+      <button md-raised-button (click)="registrar(cemail.value, cpassword.value)">Registrarse</button>
+      <button md-raised-button (click)="fbRegistrar(cpassword.value)">Registrarse con Facebook</button>
+    </div>
   </form>
   <div>
     <md-chip-list>

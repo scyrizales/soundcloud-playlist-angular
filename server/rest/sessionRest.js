@@ -6,7 +6,7 @@ var usuarioModelo = require('./usuarioModelo');
 usuarioRest.get('/usuario', function(req, res) {
     let u = req.session.usuario || {};
     usuarioModelo.listar({ _id: u._id })
-        .then(function (err, usuarios) {
+        .then(function (usuarios) {
             res.json(usuarios[0] || {});
         });
 });
@@ -23,6 +23,24 @@ usuarioRest.post('/login', function(req, res) {
     var email = req.body.email;
     var password = req.body.password;
     usuarioModelo.listar({ email: email, password: password })
+        .then(function (usuarios) {
+            if (usuarios && usuarios.length) {
+                req.session.authenticated = true;
+                let usuario = usuarios[0];
+                delete usuario.password;
+                req.session.usuario = usuario;
+                res.json(usuario);
+            } else {
+                cbs.devolerError(res, 401)({
+                    msg: 'Usuario invalido'
+                });
+            }
+        }, cbs.devolerError(res, 500));
+});
+
+usuarioRest.post('/fblogin', function(req, res) {
+    var email = req.body.email;
+    usuarioModelo.listar({ email: email })
         .then(function (usuarios) {
             if (usuarios && usuarios.length) {
                 req.session.authenticated = true;

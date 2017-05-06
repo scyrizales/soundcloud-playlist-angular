@@ -1,0 +1,7 @@
+<div>
+  <div *ngIf="sessionService.estaLogeado">
+    <img [src]="(sessionService.usuario | async)?.foto" 
+      style="width: 25px; height: 25px; display: inline-block;"/>
+    Bienvenido {{ (sessionService.usuario | async)?.nombre  }}
+  </div>
+</div>

@@ -1,0 +1,26 @@
+
+<md-toolbar>
+  <span>Musica</span>
+  <span>
+    <button md-button [mdMenuTriggerFor]="menu">
+      Menu
+    </button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item routerLink="/inicio">
+        <span>Inicio</span>
+      </button>
+      <button md-menu-item routerLink="/login">
+        <span>Login</span>
+      </button>
+      <button md-menu-item routerLink="/registro">
+        <span>Registro</span>
+      </button>
+      <button md-menu-item (click)="logout()">
+        <span>Logout</span>
+      </button>
+    </md-menu>
+  </span>
+  <span>
+    <usuario-estado></usuario-estado>
+  </span>
+</md-toolbar>
