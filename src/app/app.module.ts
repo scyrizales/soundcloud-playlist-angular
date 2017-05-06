@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 import { SessionService } from './session.service';
+import { SpotifyService } from './spotify.service';
+import { PlayerService } from './player.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +16,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 import { UsuarioEstadoComponent } from './usuario-estado/usuario-estado.component';
+import { BuscarCancionesComponent } from './buscar-canciones/buscar-canciones.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { UsuarioEstadoComponent } from './usuario-estado/usuario-estado.componen
     RegistroComponent,
     InicioComponent,
     NavegacionComponent,
-    UsuarioEstadoComponent
+    UsuarioEstadoComponent,
+    BuscarCancionesComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,10 @@ import { UsuarioEstadoComponent } from './usuario-estado/usuario-estado.componen
         component: RegistroComponent
       },
       {
+        path: 'buscar',
+        component: BuscarCancionesComponent
+      },
+      {
         path: '',
         redirectTo: '/inicio',
         pathMatch: 'full'
@@ -51,8 +59,9 @@ import { UsuarioEstadoComponent } from './usuario-estado/usuario-estado.componen
     ])
   ],
   providers: [
-    SessionService
-    
+    SessionService,
+    SpotifyService,
+    PlayerService
   ],
   bootstrap: [AppComponent]
 })

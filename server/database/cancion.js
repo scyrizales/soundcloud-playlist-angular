@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var cancionSchema = new Schema({
     nombre: { type: String, required: true },
     autor: { type: String },
+    imagen: { type: String },
     tags: { type: String },
     url: { type: String, required: true },
     playlist: { type: Schema.Types.ObjectId, ref: 'Playlist' }
