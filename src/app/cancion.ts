@@ -4,6 +4,7 @@ export class Cancion {
     imagen: string;
     autor: string;
     url: string;
+    playlist: string;
 
     constructor(u: any = {}) {
         this.id = u._id;

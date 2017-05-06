@@ -1,4 +1,23 @@
 <md-card>
+  <h4>Canciones en la lista</h4>
+  <div style="margin: 10px 0;" *ngFor="let c of canciones">
+    <md-card color="warn">
+      <md-card-title-group>
+        <md-card-title>
+          {{ c.nombre }}
+        </md-card-title>
+        <md-card-subtitle>
+          {{ c.autor }}
+        </md-card-subtitle>
+        <img md-card-sm-image [src]="c.imagen">
+      </md-card-title-group>
+      <md-card-actions>
+        <button md-raised-button (click)="play(c)">Play</button>
+        <button md-raised-button (click)="pause(c)">Pause</button>
+      </md-card-actions>
+    </md-card>
+  </div>
+  <h4>Agregar Canciones</h4>
   <form action="">
     <md-input-container>
       <input type="text" mdInput placeholder="Buscar cancion" #cancion name="email" />
@@ -7,7 +26,7 @@
       <button md-raised-button (click)="buscar(cancion)">Buscar</button>
     </div>
     <div>
-      <div style="margin: 10px 0;" *ngFor="let c of canciones">
+      <div style="margin: 10px 0;" *ngFor="let c of nuevasCanciones">
         <md-card color="warn">
           <md-card-title-group>
             <md-card-title>
@@ -21,6 +40,7 @@
           <md-card-actions>
             <button md-raised-button (click)="play(c)">Play</button>
             <button md-raised-button (click)="pause(c)">Pause</button>
+            <button md-raised-button (click)="agregar(c)">Agregar a Playlist</button>
           </md-card-actions>
         </md-card>
       </div>

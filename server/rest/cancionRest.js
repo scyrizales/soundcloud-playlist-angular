@@ -4,7 +4,7 @@ var cancionRest = express();
 var cancionModelo = require('./cancionModelo');
 
 cancionRest.get('', function(req, res) {
-    cancionModelo.listar()
+    cancionModelo.listar(req.query)
         .then(
             cbs.devolverParametro(res), 
             cbs.devolerError(res, 500)

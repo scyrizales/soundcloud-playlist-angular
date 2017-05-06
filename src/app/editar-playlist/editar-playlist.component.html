@@ -1,0 +1,13 @@
+<md-card>
+  <form action="">
+    <md-input-container>
+      <input type="text" mdInput placeholder="nombre" [(ngModel)]="nuevaPlaylist.nombre" name="email" />
+    </md-input-container>
+    <div>
+      <button md-raised-button (click)="guardar()">Guardar</button>
+    </div>
+  </form>
+  <div *ngIf="nuevaPlaylist.id">
+    <buscar-canciones [playlist]="nuevaPlaylist"></buscar-canciones>
+  </div>
+</md-card>

@@ -1,0 +1,25 @@
+<md-card>
+  <md-card-content>
+    <div>
+      <button md-raised-button  routerLink="/editar-playlist/new">Agregar</button>
+    </div>
+    <div>
+      <div style="margin: 10px 0;" *ngFor="let p of playlists">
+        <md-card color="warn">
+          <md-card-title-group>
+            <md-card-title>
+              {{ p.nombre }}
+            </md-card-title>
+            <img md-card-sm-image [src]="p.imagen">
+          </md-card-title-group>
+          <md-card-actions>
+            <button md-raised-button routerLink="/editar-playlist/{{ p.id }}">editar</button>
+          </md-card-actions>
+          <md-card-content>
+            <lista-canciones [playlist]="p"></lista-canciones>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>

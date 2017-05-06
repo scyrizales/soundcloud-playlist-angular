@@ -3,7 +3,7 @@ var db = require('./../database');
 function CancionModelo() {}
 CancionModelo.prototype.listar = function(parametros) {
     parametros = parametros || {};
-    return db.cancion.find(parametros).populate('autor').exec();
+    return db.cancion.find(parametros).exec();
 };
 
 CancionModelo.prototype.crear = function(data) {

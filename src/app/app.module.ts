@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { SessionService } from './session.service';
 import { SpotifyService } from './spotify.service';
 import { PlayerService } from './player.service';
+import { PlaylistService } from './playlist.service';
+import { CancionService } from './cancion.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +19,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 import { UsuarioEstadoComponent } from './usuario-estado/usuario-estado.component';
 import { BuscarCancionesComponent } from './buscar-canciones/buscar-canciones.component';
+import { EditarPlaylistComponent } from './editar-playlist/editar-playlist.component';
+import { PlaylistsComponent } from './playlists/playlists.component';
+import { ListaCancionesComponent } from './lista-canciones/lista-canciones.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,10 @@ import { BuscarCancionesComponent } from './buscar-canciones/buscar-canciones.co
     InicioComponent,
     NavegacionComponent,
     UsuarioEstadoComponent,
-    BuscarCancionesComponent
+    BuscarCancionesComponent,
+    EditarPlaylistComponent,
+    PlaylistsComponent,
+    ListaCancionesComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +56,12 @@ import { BuscarCancionesComponent } from './buscar-canciones/buscar-canciones.co
         component: RegistroComponent
       },
       {
-        path: 'buscar',
-        component: BuscarCancionesComponent
+        path: 'playlists',
+        component: PlaylistsComponent
+      },
+      {
+        path: 'editar-playlist/:id',
+        component: EditarPlaylistComponent
       },
       {
         path: '',
@@ -61,7 +73,9 @@ import { BuscarCancionesComponent } from './buscar-canciones/buscar-canciones.co
   providers: [
     SessionService,
     SpotifyService,
-    PlayerService
+    PlayerService,
+    PlaylistService,
+    CancionService
   ],
   bootstrap: [AppComponent]
 })
